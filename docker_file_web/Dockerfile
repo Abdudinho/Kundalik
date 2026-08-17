@@ -3,7 +3,6 @@
 
     COPY requirements.txt .
     RUN --mount=type=cache,id=custom-pip,target=/root/.cache/pip pip install -r requirements.txt
+COPY . .
 
-    COPY . .
-
-    CMD ["uvicorn", "web.app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "web.app:app", "--host", "0.0.0.0", "--port", "8000"]
